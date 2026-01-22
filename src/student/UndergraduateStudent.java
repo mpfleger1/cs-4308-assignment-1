@@ -42,6 +42,14 @@ public class UndergraduateStudent extends Student {
     }
 
     /**
+     * @param classification - class seniority (1-freshman, 2-sophomore, 3-junior, 4-senior)
+     * @return check if classification input is between 1-4
+     */
+
+    public static boolean isValidClassification(String classification){ return Integer.parseInt(classification) > 0 && Integer.parseInt(classification) < 5; }
+
+
+    /**
      * Check for undergraduate student probation
      * @return boolean checking for undergraduate student probation (gpa less than 3.0)
      */

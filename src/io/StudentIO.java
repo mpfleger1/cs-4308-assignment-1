@@ -76,6 +76,8 @@ public abstract class StudentIO {
         if (!Student.isValidGPA(gpa))
             throw new FileFormatException("invalid gpa in file");
         String classification = tokens[5];
+        if (!UndergraduateStudent.isValidClassification(classification))
+            throw new IllegalArgumentException("Invalid classification in file");
 
         return new UndergraduateStudent(name, student_number, major, birthday, gpa, classification);
     }
