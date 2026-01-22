@@ -16,6 +16,7 @@ public abstract class Student implements Comparable<Student> {
     private String birthday;
     private String major;
     protected double gpa;
+
     /**
     constructor for Student
     @param name - name of the student
@@ -28,6 +29,7 @@ public abstract class Student implements Comparable<Student> {
     @param gpa - student grade point average
         @pre gpa domain [0.0, 4.0]
      */
+
     public Student(String name, String student_number,
                    String major, String birthday, double gpa) throws IllegalArgumentException{
         this.name = name;

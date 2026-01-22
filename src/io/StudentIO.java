@@ -10,9 +10,24 @@ import student.*;
 import exception.*;
 
 
+/**
+ *
+ * StudentIO class defines the functions used for reading in and processing input data and error handling
+ *
+ */
+
 public abstract class StudentIO {
 
     public StudentIO(){}
+
+    /**
+     * Read student information from input file, and designate error file for error reading
+     * @param dataFileName - input file
+     * @param errFileName - error foile
+     * @return - BST containing the Student classes
+     * @throws IllegalArgumentException
+     * @throws IOException
+     */
 
     public BST<Student> getStudents(String dataFileName, String errFileName) throws IllegalArgumentException, IOException
     {
@@ -40,6 +55,14 @@ public abstract class StudentIO {
         return students;
     }
 
+    /**
+     * Read input file line from line
+     * @param line - line in input file
+     * @return - Instance of Student (Undergraduate/Graduate) class
+     * @throws IllegalArgumentException
+     * @throws FileFormatException
+     */
+
     private Student getStudent(String line) throws IllegalArgumentException, FileFormatException
     {
         if (line == null)
@@ -55,6 +78,14 @@ public abstract class StudentIO {
             throw new FileFormatException("invalid number of fields in file");
         return std;
     }
+
+    /**
+     * Create an instance of the UndergraduateClass from input
+     * @param tokens - arguments from the command line inputs
+     * @return - new UndergraduateStudent instance
+     * @throws IllegalArgumentException
+     * @throws FileFormatException
+     */
 
     private Student getUndergraduateStudent(String[] tokens) throws IllegalArgumentException, FileFormatException
     {
@@ -82,6 +113,14 @@ public abstract class StudentIO {
         return new UndergraduateStudent(name, student_number, major, birthday, gpa, classification);
     }
 
+    /**
+     * Create an instance of the GraduateStudent class from input
+     * @param tokens - arguments from the command line inputs
+     * @return - new GraduateStudent instance
+     * @throws IllegalArgumentException
+     * @throws FileFormatException
+     */
+
     private Student getGraduateStudent(String[] tokens) throws IllegalArgumentException, FileFormatException
     {
         if (tokens == null)
@@ -108,7 +147,20 @@ public abstract class StudentIO {
         return new GraduateStudent(name, student_number, major, birthday, gpa, faculty_advisor, thesis_title);
     }
 
+    /**
+     * Function used to display a single student
+     * @param std - Instance of Student class
+     * @throws IllegalArgumentException
+     */
+
     public abstract void displayStudent(Student std) throws IllegalArgumentException;
+
+    /**
+     * Function used to print entire BST of instances of Student class
+     * @param students - BST containing instances of Student class
+     * @throws IllegalArgumentException
+     */
+
     public abstract void displayAllStudents(BST<Student> students) throws IllegalArgumentException;
 
 
