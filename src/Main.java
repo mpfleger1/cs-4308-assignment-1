@@ -3,10 +3,13 @@ Matthew Pfleger
 CS
  */
 
+import bst.*;
+import student.*;
+import exception.*;
+import io.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 
 public class Main {
 
@@ -19,7 +22,7 @@ public class Main {
         try
         {
             StudentIO stdIO = new CLIStudentIO();
-            List<Student> stds = stdIO.getStudents(args[0], args[1]);
+            BST<Student> stds = stdIO.getStudents(args[0], args[1]);
             stdIO.displayAllStudents(stds);
         }
         catch (IllegalArgumentException e)
@@ -39,4 +42,5 @@ public class Main {
             System.err.println("unexpected error occurred - terminating");
         }
     }
+
 }

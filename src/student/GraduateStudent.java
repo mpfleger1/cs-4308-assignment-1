@@ -1,3 +1,9 @@
+package student;
+
+import bst.*;
+import exception.*;
+import io.*;
+
 public class GraduateStudent extends Student{
     private String thesis_title;
     private String faculty_advisor;
@@ -32,4 +38,7 @@ public class GraduateStudent extends Student{
     public boolean isOnProbation(){
         return this.gpa < 3.0;
     }
+
+    @Override
+    public int compareTo(Student o) { return Integer.parseInt(o.getStudent_number()); }
 }

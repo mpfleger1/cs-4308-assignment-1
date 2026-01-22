@@ -1,12 +1,17 @@
+package student;
 
-public abstract class Student {
+import bst.*;
+import exception.*;
+import io.*;
+
+public abstract class Student implements Comparable<Student> {
     private String name;
     private String student_number;
     private String birthday;
     private String major;
     protected double gpa;
     /*
-    constructor for Student
+    constructor for student.Student
     @param name - name of the student
         @pre name is not null
     @param student_number - unique student identification number

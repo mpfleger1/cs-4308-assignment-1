@@ -1,23 +1,24 @@
+package io;
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Pattern;
+
+import bst.*;
+import student.*;
+import exception.*;
 
 
 public abstract class StudentIO {
 
     public StudentIO(){}
 
-    public List<Student> getStudents(String dataFileName, String errFileName) throws IllegalArgumentException, IOException
+    public BST<Student> getStudents(String dataFileName, String errFileName) throws IllegalArgumentException, IOException
     {
         if (dataFileName == null)
             throw new IllegalArgumentException("null file name argument in getEmployees");
-        List<Student> employees = new ArrayList<>();
+        BST<Student> students = new BST<Student>();
         Scanner input = new Scanner(new File(dataFileName));
         FileWriter errFile = new FileWriter(errFileName);
         while (input.hasNextLine())
@@ -26,7 +27,7 @@ public abstract class StudentIO {
             try
             {
                 Student e = getStudent(line);
-                employees.add(e);
+                students.insert(e);
             }
             catch (FileFormatException e)
             {
@@ -36,7 +37,7 @@ public abstract class StudentIO {
         }
         input.close();
         errFile.close();
-        return employees;
+        return students;
     }
 
     private Student getStudent(String line) throws IllegalArgumentException, FileFormatException
@@ -106,7 +107,7 @@ public abstract class StudentIO {
     }
 
     public abstract void displayStudent(Student std) throws IllegalArgumentException;
-    public abstract void displayAllStudents(List<Student> stds) throws IllegalArgumentException;
+    public abstract void displayAllStudents(BST<Student> students) throws IllegalArgumentException;
 
 
 }

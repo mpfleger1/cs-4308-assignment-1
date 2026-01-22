@@ -1,3 +1,5 @@
+package exception;
+
 /**
  * exception thrown when an error occurs in reading data from file
  */

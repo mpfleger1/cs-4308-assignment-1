@@ -1,3 +1,9 @@
+package student;
+
+import bst.*;
+import exception.*;
+import io.*;
+
 public class UndergraduateStudent extends Student {
     private String classification;
 
@@ -23,4 +29,7 @@ public class UndergraduateStudent extends Student {
     public boolean isOnProbation(){
         return this.gpa < 2.0;
     }
+
+    @Override
+    public int compareTo(Student o) { return Integer.parseInt(o.getStudent_number()); }
 }
