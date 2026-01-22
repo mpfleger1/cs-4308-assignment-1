@@ -1,6 +1,7 @@
-/*
-Matthew Pfleger
-CS
+/**
+ * Matthew Pfleger
+ * CS 4308-W03
+ * Assignment 1
  */
 
 import bst.*;
